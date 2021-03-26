@@ -40,7 +40,7 @@ async def index_files(bot, message):
                                 await message.forward(PRIVATE_CHANNEL_ID)
                             except FloodWait as e:
                                 await asyncio.sleep(e.x)
-                                await message.forward(PRIVATE_CHANNEL_ID)
+                                await message.copy(PRIVATE_CHANNEL_ID)
                             
                             total_files += 1
             except Exception as e:
