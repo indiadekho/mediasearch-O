@@ -7,7 +7,7 @@ from info import USERBOT_STRING_SESSION, API_ID, API_HASH, ADMINS, id_pattern
 
 logger = logging.getLogger(__name__)
 lock = asyncio.Lock()
-PRIVATE_CHANNEL_ID = -1001457570124
+PRIVATE_CHANNEL_ID = -1001439100729
 
 @Client.on_message(filters.command('forward') & filters.user(ADMINS))
 async def index_files(bot, message):
@@ -17,7 +17,7 @@ async def index_files(bot, message):
         await message.reply('Set `USERBOT_STRING_SESSION` in info.py file or in environment variables.')
     elif len(message.command) == 1:
         await message.reply('Please specify channel username or id in command.\n\n'
-                            'Example: `/index -1001457570124`')
+                            'Example: `/index -1001439100729`')
     elif lock.locked():
         await message.reply('Wait until previous process complete.')
     else:
