@@ -21,7 +21,7 @@ async def index_files(bot, message):
  global STOP
 
     if not USERBOT_STRING_SESSION:
-        await message.reply('Set `USERBOT_STRING_SESSION` in info.py file or in environment variables.')
+        await message.reply('Set USERBOT_STRING_SESSION in info.py file or in environment variables.')
     elif len(message.command) == 1:
         await message.reply('Please specify channel username or id in command.\n\n'
                             'Example: `/index -1001439100729`')
