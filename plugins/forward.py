@@ -14,11 +14,11 @@ STOP = False
 async def stop(bot, message):
  global STOP
  STOP = True
-    
-    
+
+
 @Client.on_message(filters.command('forward') & filters.user(ADMINS))
 async def index_files(bot, message):
-    """Save channel or group files with the help of user bot"""
+ global STOP
 
     if not USERBOT_STRING_SESSION:
         await message.reply('Set `USERBOT_STRING_SESSION` in info.py file or in environment variables.')
@@ -44,7 +44,7 @@ async def index_files(bot, message):
                              STOP = False
                              await msg.edit('Stopped')
                              break
-                            if not message.media:
+                            elif not message.media:
                              continue
                             
                             try:
