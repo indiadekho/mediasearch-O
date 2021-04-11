@@ -5,7 +5,7 @@ from pyrogram.errors import FloodWait
 from info import USERBOT_STRING_SESSION, API_ID, API_HASH, ADMINS, id_pattern
 
 
-logger = logging.getLogger(_name_)
+logger = logging.getLogger(__name__)
 lock = asyncio.Lock()
 PRIVATE_CHANNEL_ID = -10012345677
 
