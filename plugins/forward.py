@@ -9,7 +9,7 @@ logger = logging.getLogger(name)
 lock = asyncio.Lock()
 PRIVATE_CHANNEL_ID = -10012345677
 
-@Client.on_message(filters.command('forward') & filters.user(ADMINS)) & (filters.video | filters.document))
+@Client.on_message(filters.command('forward') & filters.user(ADMINS) & (filters.video | filters.document))
 async def index_files(bot, message):
     """Save channel or group files with the help of user bot"""
     if not USERBOT_STRING_SESSION:
