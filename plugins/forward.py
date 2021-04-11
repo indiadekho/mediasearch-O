@@ -5,19 +5,18 @@ from pyrogram.errors import FloodWait
 from info import USERBOT_STRING_SESSION, API_ID, API_HASH, ADMINS, id_pattern
 
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger(name)
 lock = asyncio.Lock()
 PRIVATE_CHANNEL_ID = -10012345677
 
-@Client.on_message(filters.command('forward') & filters.user(ADMINS)) & filters.video & filters.document)
+@Client.on_message(filters.command('forward') & filters.user(ADMINS)) & (filters.video | filters.document))
 async def index_files(bot, message):
     """Save channel or group files with the help of user bot"""
-
     if not USERBOT_STRING_SESSION:
-        await message.reply('Set `USERBOT_STRING_SESSION` in info.py file or in environment variables.')
+        await message.reply('Set USERBOT_STRING_SESSION in info.py file or in environment variables.')
     elif len(message.command) == 1:
         await message.reply('Please specify channel username or id in command.\n\n'
-                            'Example: `/index -10012345678`')
+                            'Example: /index -10012345678')
     elif lock.locked():
         await message.reply('Wait until previous process complete.')
     else:
