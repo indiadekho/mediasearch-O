@@ -7,24 +7,17 @@ from info import USERBOT_STRING_SESSION, API_ID, API_HASH, ADMINS, id_pattern
 
 logger = logging.getLogger(__name__)
 lock = asyncio.Lock()
-PRIVATE_CHANNEL_ID = -1001439100729
-STOP = False
+PRIVATE_CHANNEL_ID = -10012345677
 
-@Client.on_message(filters.command('stop') & filters.user(ADMINS))
-async def stop(bot, message):
- global STOP
- STOP = True
-
-
-@Client.on_message(filters.command('forward') & filters.user(ADMINS) & filters.video & ~filters.document)
+@Client.on_message(filters.command('forward') & filters.user(ADMINS)) & filters.video & ~filters.document)
 async def index_files(bot, message):
- global STOP
+    """Save channel or group files with the help of user bot"""
 
     if not USERBOT_STRING_SESSION:
-        await message.reply('Set USERBOT_STRING_SESSION in info.py file or in environment variables.')
+        await message.reply('Set `USERBOT_STRING_SESSION` in info.py file or in environment variables.')
     elif len(message.command) == 1:
         await message.reply('Please specify channel username or id in command.\n\n'
-                            'Example: `/index -1001439100729`')
+                            'Example: `/index -10012345678`')
     elif lock.locked():
         await message.reply('Wait until previous process complete.')
     else:
@@ -40,11 +33,7 @@ async def index_files(bot, message):
                     for chat in chats:
                         
                         async for message in user_bot.iter_history(chat):
-                            if STOP:
-                             STOP = False
-                             await msg.edit('Stopped')
-                             break
-                            elif not message.media:
+                            if not message.media:
                              continue
                             
                             try:
