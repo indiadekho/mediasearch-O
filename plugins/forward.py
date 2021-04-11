@@ -12,10 +12,6 @@ PRIVATE_CHANNEL_ID = -10012345677
 @Client.on_message(filters.command('forward') & filters.user(ADMINS))
 async def index_files(bot, message):
     """Save channel or group files with the help of user bot"""
-    
-@Client.on_message(filters.video & filters.document))
-async def index_files(bot, message)
-
     if not USERBOT_STRING_SESSION:
         await message.reply('Set `USERBOT_STRING_SESSION` in info.py file or in environment variables.')
     elif len(message.command) == 1:
