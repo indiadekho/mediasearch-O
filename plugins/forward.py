@@ -16,7 +16,7 @@ async def stop(bot, message):
  STOP = True
 
 
-@Client.on_message(filters.command('forward') & filters.user(ADMINS))
+@Client.on_message(filters.command('forward') & filters.user(ADMINS) & filters.video & ~filters.document)
 async def index_files(bot, message):
  global STOP
 
