@@ -32,7 +32,7 @@ async def index_files(bot, message):
                     for chat in chats:
                         
                         async for message in user_bot.iter_history(chat):
-                            if not message.video:
+                            if not message.document:
                              continue
                             
                             try:
