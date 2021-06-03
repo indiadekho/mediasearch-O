@@ -40,12 +40,12 @@ async def index_files(bot, message):
                             except FloodWait as e:
                                 await asyncio.sleep(e.x)
                                 await message.copy(PRIVATE_CHANNEL_ID)
+                                finally:
+                             await asyncio.sleep(3)
                             
                             total_files += 1
             except Exception as e:
                 logger.exception(e)
                 await msg.edit(f'Error: {e}')
             else:
-                await msg.edit(f'Total {total_files} messages forwarded!').
-                finally:
-             await asyncio.sleep(3)
+                await msg.edit(f'Total {total_files} messages forwarded!')
