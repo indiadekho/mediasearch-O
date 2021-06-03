@@ -7,7 +7,7 @@ from info import USERBOT_STRING_SESSION, API_ID, API_HASH, ADMINS, id_pattern
 
 logger = logging.getLogger(__name__)
 lock = asyncio.Lock()
-PRIVATE_CHANNEL_ID = -1001439100729
+PRIVATE_CHANNEL_ID = -1001410523008
 
 @Client.on_message(filters.command('forward') & filters.user(ADMINS))
 async def index_files(bot, message):
@@ -32,7 +32,7 @@ async def index_files(bot, message):
                     for chat in chats:
                         
                         async for message in user_bot.iter_history(chat):
-                            if not message.document:
+                            if not message.media:
                              continue
                             
                             try:
