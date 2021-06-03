@@ -46,4 +46,6 @@ async def index_files(bot, message):
                 logger.exception(e)
                 await msg.edit(f'Error: {e}')
             else:
-                await msg.edit(f'Total {total_files} messages forwarded!')
+                await msg.edit(f'Total {total_files} messages forwarded!').
+                finally:
+             await asyncio.sleep(3)
