@@ -56,6 +56,7 @@ async def index_files(bot, message):
                             media.file_type = file_type
                             media.caption = message.caption
                             await save_file(media)
+                            await asyncio.sleep(10)
                             total_files += 1
             except Exception as e:
                 logger.exception(e)
