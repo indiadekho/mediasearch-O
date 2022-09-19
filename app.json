@@ -12,8 +12,8 @@
       "index",
       "inline"
     ],
-    "website": "https://github.com/Mahesh0253/Media-Search-bot",
-    "repository": "https://github.com/Mahesh0253/Media-Search-bot",
+    "website": "https://github.com/indiadekho/mediasearch-O/tree/old-media",
+    "repository": "https://github.com/indiadekho/mediasearch-O/tree/old-media",
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token.",
