@@ -38,7 +38,7 @@ async def index_files(bot, message):
                             try:
                                 await message.copy(PRIVATE_CHANNEL_ID)
                             except FloodWait as e:
-                                await asyncio.sleep(e.x)
+                                await asyncio.sleep(10)
                                 await message.copy(PRIVATE_CHANNEL_ID)
                             
                             total_files += 1
