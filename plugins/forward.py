@@ -16,7 +16,7 @@ async def index_files(bot, message):
         await message.reply('Set `USERBOT_STRING_SESSION` in info.py file or in environment variables.')
     elif len(message.command) == 1:
         await message.reply('Please specify channel username or id in command.\n\n'
-                            'Example: `/index -10012345678`')
+                            'Example: `/forward -10012345678`')
     elif lock.locked():
         await message.reply('Wait until previous process complete.')
     else:
@@ -36,6 +36,7 @@ async def index_files(bot, message):
                              continue
                             
                             try:
+                                await asyncio.sleep(10)
                                 await message.copy(PRIVATE_CHANNEL_ID)
                             except FloodWait as e:
                                 await asyncio.sleep(10)
